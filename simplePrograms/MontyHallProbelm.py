@@ -16,19 +16,8 @@ def run(switch, contestant_door):
     remaining_doors.remove(winning_door)
 
     #contestant can selects a door
-    # if not chosen_door:
-    #     #     print("chosen door is none")
-    #     #     contestant_door_index = int(random.randrange(0, len(doors)))
-    #     #     contestant_door = doors[contestant_door_index]
-    #     #     print('random contestant door: ', contestant_door)
-    #     # else:
-    #     #     print(chosen_door.values()[0])
-    #     #     print("chosen door is: ",)
-    #     #     contestant_door = chosen_door
     if contestant_door != winning_door:
         remaining_doors.remove(contestant_door)
-
-
 
     #monty hall opens 1 door that doesnt contain prize
     if len(remaining_doors) == 1:
@@ -38,19 +27,12 @@ def run(switch, contestant_door):
         monty_hall_door = remaining_doors[monty_hall_door_index]
     available_doors.remove(monty_hall_door)
 
-    #print('contestant door is: ', contestant_door)
-    #print('Monty chooses: ', monty_hall_door)
-    #print("switch? ", switch)
-
     if switch == True:
         if contestant_door != available_doors[0]:
             contestant_door = available_doors[0]
         else: contestant_door = available_doors[1]
-        #print("contestant's new door is: ", contestant_door)
-    #print('Winning door is: ', winning_door)
     if winning_door == contestant_door:
         did_win = 1
-        #print("Contestant won!")
     return did_win
 
 def calculateWinRate(switch, contestant_door, iterations):
